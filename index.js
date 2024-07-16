@@ -3,6 +3,7 @@ const app = express();
 const { connectMongoDb} = require ("./Connection/connection");
 const routes = require("./Routers/user");
 const routesTwo = require("./Routers/adminUserRoutes");
+const routesThree = require("./Routers/userEcomRoute");
 const authRoutes = require("./Routers/auth");
 const path = require ("path");
 const cors = require ("cors");
@@ -33,6 +34,8 @@ app.use(cookieParser());
 //Middleware to render all the routes
 app.use(routes);
 app.use(routesTwo);
+app.use(routesThree);
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
