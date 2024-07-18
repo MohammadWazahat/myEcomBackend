@@ -1,14 +1,20 @@
 const express = require("express");
 const app = express();
 const { connectMongoDb} = require ("./Connection/connection");
+
+//Routes
 const routes = require("./Routers/user");
 const routesTwo = require("./Routers/adminUserRoutes");
 const routesThree = require("./Routers/userEcomRoute");
 const authRoutes = require("./Routers/auth");
+
+//Middleware
 const path = require ("path");
 const cors = require ("cors");
-require('dotenv').config();
 const cookieParser = require('cookie-parser')
+
+
+require('dotenv').config();
 
 //Variable
 const port = 3015;
@@ -29,7 +35,7 @@ app.use(express.urlencoded({extended : false }));
 app.use(cookieParser());
 
 //Auth Routes Middleware
-// app.use(authRoutes);
+app.use(authRoutes);
 
 //Middleware to render all the routes
 app.use(routes);
