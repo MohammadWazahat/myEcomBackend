@@ -15,7 +15,7 @@ router.post("/users/signUp", handleSignUp);
 router.post("/users/logIn", handleLogIn);
 
 //Read all request from mongodb
-router.get("/users/", myAuthMiddle, handleGetAuthUsers);
+router.get("/users/", handleGetAuthUsers);
 
 // router.get("/users/", myAuthTest ,handleGetAllUsers);
 // router.get("/users/" ,handleGetAllUsers);
